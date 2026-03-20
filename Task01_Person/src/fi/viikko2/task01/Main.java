@@ -23,5 +23,12 @@ public class Main {
         // System.out.println(people[0].equals(people[2]));
         // System.out.println(people[0].birthday());
         // System.out.println(people[0]);
+
+        Person personArray[] = {new Person("Jarkko", 36), new Person("Jaska", 50), new Person("Juuso"), new Person("Jarkko", 36)};
+        System.out.println("New age: " + personArray[0].birthday());
+        System.out.println("New age: " + personArray[3].birthday());
+        System.out.println(personArray[0].toString());
+        System.out.println(personArray[3]);
+        System.out.print("Person objects equals: " + personArray[0].equals(personArray[3]));
     }
 }
