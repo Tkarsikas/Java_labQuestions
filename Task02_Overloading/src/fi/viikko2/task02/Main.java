@@ -19,7 +19,14 @@ public class Main {
     public static void main(String[] args) {
         int[] a = {1,2,3};
         double[] b = {1.5,2.5,3.0};
-        System.out.println(MathUtil.placeholderInt());
-        System.out.println(MathUtil.placeholderDouble());
+        System.out.println("kahden luvun summa: " + MathUtil.sum(a[0], a[1]));
+        System.out.println("kolmen luvun summa: " + MathUtil.sum(a[0], a[1], a[2]));
+        System.out.println("int taulukon summa: " + MathUtil.sum(a));
+        System.out.println("double taulukon summa: " + MathUtil.sum(b));
+        System.out.println("max int: " + MathUtil.max(a));
+        System.out.println("min int: " + MathUtil.min(a));
+        System.out.println("max double: " + MathUtil.max(b));
+        System.out.println("min double: " + MathUtil.min(b));
+
     }
 }
