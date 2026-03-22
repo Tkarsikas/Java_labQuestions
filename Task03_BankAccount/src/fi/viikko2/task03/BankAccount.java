@@ -18,19 +18,59 @@
 package fi.viikko2.task03;
 
 public class BankAccount {
-   
+   String accountNumber;
+   private double balance;
+
+   public BankAccount(String accountNumber, double balance){
+    if(balance < 0){
+        this.balance = 0;
+    }else{
+        this.balance=balance;
+    }
+    this.accountNumber=accountNumber;
+   }
+
+public double getBalance() {
+    return balance;
+}
+
+   public boolean withdraw(double amount){
+    if(amount>balance){
+        System.out.println("Et voi nostaa yli saldon, yritit tallettaa "+amount+", saldosi on " + balance);
+        return false;
+    }
+    else{
+        this.balance -= amount;
+       System.out.println("Nosto onnistui, saldoa jäljellä: " + balance);
+        return true;
+    }
+   }
+
+   public boolean deposit(double amount){
+    if(amount <= 0){
+        System.out.println("talletus summa täytyy olla isompi kuin 0, yritit tallettaa"+amount);
+        return false;
+    }else{
+    this.balance += amount;
+    System.out.println("talletus onnistui, saldoa: "+ balance);
+    return true;
+    }
+   }
 
 
 
     @Override
     public String toString(){
-        //  Toteuta ja palauta merkkijono. Kun olet valmis, POISTA alla oleva rivi.
-        throw new UnsupportedOperationException("TODO: implement toString()");
+        return "accountNumber="+accountNumber+", balance="+ balance;
     }
 
     @Override
     public boolean equals(Object o){
-        //  Toteuta ja palauta merkkijono. Kun olet valmis, POISTA alla oleva rivi.
-        throw new UnsupportedOperationException("TODO: implement equals(Object)");
+        if(this == o) return true;
+        if(!( o instanceof BankAccount)) return false;
+        BankAccount other = (BankAccount)o;
+
+        return this.accountNumber.equals(other.accountNumber);
+
     }
 }
