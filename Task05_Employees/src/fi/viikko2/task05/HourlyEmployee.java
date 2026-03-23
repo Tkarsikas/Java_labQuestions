@@ -17,12 +17,32 @@
 package fi.viikko2.task05;
 
 public class HourlyEmployee extends Employee {
-    // TODO: private double hourlyRate; private double hoursPerMonth;
-    // TODO: public HourlyEmployee(String name, double hourlyRate, double hoursPerMonth){ super(name); ... }
+    private double hourlyRate;
+    private double hoursPerMonth;
+
+    public HourlyEmployee(String name, double hourlyRate, double hoursPerMonth){
+        super(name);
+        this.hourlyRate=hourlyRate;
+        this.hoursPerMonth=hoursPerMonth;
+    }
+
 
     @Override
-    public double monthlyPay(){ throw new UnsupportedOperationException("TODO: implement monthlyPay()"); }
+    public double monthlyPay(){ 
+        return hourlyRate * hoursPerMonth;
+    }
 
     @Override
-    public String toString(){ throw new UnsupportedOperationException("TODO: implement toString()"); }
+    public String toString(){ 
+        return "Kuukauden tunnit: "+hoursPerMonth+ ", tuntipalkka"+hourlyRate;
+    }
+
+    @Override
+    public boolean equals(Object o){ 
+        if(this == o)return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HourlyEmployee other = (HourlyEmployee)o;
+        return java.util.Objects.equals(this.name, other.name) &&
+        this.hoursPerMonth == other.hoursPerMonth && this.hourlyRate == other.hourlyRate;
+    }
 }

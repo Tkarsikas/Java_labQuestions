@@ -17,12 +17,33 @@
 package fi.viikko2.task05;
 
 public class SalariedEmployee extends Employee {
-    // TODO: private double monthlySalary;
-    // TODO: public SalariedEmployee(String name, double monthlySalary){ super(name); ... }
+    private double monthlySalary;
+
+    public SalariedEmployee(String name, double monthlySalary){
+        super(name);
+        this.monthlySalary=monthlySalary;
+    }
+    public void setMonthlySalary(double monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
 
     @Override
-    public double monthlyPay(){ throw new UnsupportedOperationException("TODO: implement monthlyPay()"); }
+    public double monthlyPay(){ 
+        return monthlySalary;
+     }
 
     @Override
-    public String toString(){ throw new UnsupportedOperationException("TODO: implement toString()"); }
+    public String toString(){ 
+        return "Henkilön: "+name+" kuukausipalkka: "+monthlySalary;
+     }
+
+    @Override
+    public boolean equals(Object o){ 
+        if(this == o)return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SalariedEmployee other = (SalariedEmployee)o;
+         return this.monthlySalary == other.monthlySalary && 
+         java.util.Objects.equals(this.name, other.name);
+    }
 }
