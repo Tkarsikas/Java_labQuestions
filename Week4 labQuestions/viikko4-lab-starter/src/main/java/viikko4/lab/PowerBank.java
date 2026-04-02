@@ -5,14 +5,34 @@ public class PowerBank extends Device implements Rechargeable {
 
     public PowerBank(String name, Integer b) {
         super(name);
-        /* TODO */ this.battery = b;
+        if(b != null && b<=100 && b>=0){
+            this.battery = b;
+        }else{
+            throw new IllegalArgumentException("Väärä arvo! PowerBank");
+        }
     }
 
     public void recharge(Integer minutes) {
-        /* TODO */ }
-
+        if(minutes != null && minutes>0){
+            battery += minutes;
+            if(battery > 100){
+                battery = 100;
+            }    
+        }else{
+            throw new IllegalArgumentException("Väärä arvo! PowerBank");
+        }    
+    }
+    
     public void discharge(Integer minutes) {
-        /* TODO */ }
+        if(minutes != null && minutes>0){
+            battery -= minutes/3;
+            if(battery < 0){
+                battery = 0;
+            }
+        }else{
+            throw new IllegalArgumentException("Väärä arvo! PowerBank");
+        }    
+        }
 
     public Integer batteryPercent() {
         return battery;

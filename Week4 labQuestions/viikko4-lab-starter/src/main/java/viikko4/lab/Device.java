@@ -4,7 +4,11 @@ public abstract class Device {
     protected String name;
 
     public Device(String name) {
-        /* TODO */ this.name = name;
+        if(name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }else{
+            throw new IllegalArgumentException("Väärä arvo! Device");
+        }
     }
 
     public abstract Integer batteryPercent();
