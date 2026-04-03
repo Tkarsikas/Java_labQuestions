@@ -4,7 +4,7 @@ public abstract class Vehicle {
     protected String name;
 
     public Vehicle(String name) {
-        if(name != null && name.trim().isEmpty()){
+        if(name != null && !name.trim().isEmpty()){
         this.name = name;
         }else{
             throw new IllegalArgumentException("Väärä arvo! Vehicle");

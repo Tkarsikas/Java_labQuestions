@@ -10,7 +10,7 @@ public class Book {
         }else{
             throw new IllegalArgumentException("Väärä arvo! title Book");
         }
-        if( a != null && a.trim().isEmpty()){
+        if( a != null && !a.trim().isEmpty()){
             this.author = a;    
         }else{
             throw new IllegalArgumentException("Väärä arvo!author Book");
