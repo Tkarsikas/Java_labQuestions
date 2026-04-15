@@ -1,5 +1,15 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        String text  = "  Hello,    World! ja niin   että  ";
+
+        System.out.println(countWords(text));
+    }
+
+    public static int countWords(String text){
+        String[] words = text
+        .trim()
+        .replaceAll("\\s+", " ")
+        .split(" ");
+        return words.length;
     }
 }
