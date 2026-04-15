@@ -1,4 +1,6 @@
-public class App {
+import java.util.List;
+
+public class ApArrayList {
     public static void main(String[] args) throws Exception {
         String text  = "  Hello,    World! ja niin   että  ";
 
