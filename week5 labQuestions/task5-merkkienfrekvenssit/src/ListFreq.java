@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -8,17 +9,18 @@ public class ListFreq {
         if (s == null) {
             return "{}";
         }
-
-        Map<Character, Long> letters = s.toLowerCase()
-            .chars()
-            .mapToObj(c -> (char) c)
-            .filter(Character::isLetter)
-            .collect(Collectors.groupingBy(
-                ch -> ch,
-                LinkedHashMap::new,
-                Collectors.counting()
-            ));
-
+        s.toLowerCase();
+        Map<Character, Integer> letters = new HashMap<>();
+        for (char l : s.toCharArray()) {
+            if(Character.isLetter(l)){
+                if(letters.containsKey(l)){
+                    int count = letters.get(l)+1;
+                    letters.put(l,count);
+                }else{
+                    letters.put(l,1);
+                }
+            }
+        }
         return letters.toString();
     }
 }
